@@ -20,8 +20,8 @@ ui <- fluidPage(
   mainPanel(
     plotlyOutput("icePlot"),
     h4("Click on the dots to learn more about the ice cream flavor."),
-    uiOutput("imageLink"),
-    htmlOutput("picture")
+    uiOutput("imageLink")
+    #htmlOutput("picture")
   )
 )
 
@@ -41,18 +41,11 @@ server <- function(input, output) {
       ice.cream <- ice.cream %>% filter(images == event.data$key)
       
       HTML('<p>Flavor:',ice.cream$flavors, '</p>','<p>X Value:', event.data[["x"]], '</p>','<p>Y Value:', event.data[["y"]],'</p>',
-           '<a href="', ice.cream$images,'">', ice.cream$images,'</a>','<p>','</p>')
+           '<a href="', ice.cream$images,'">', ice.cream$images,'</a>','<p>','<img src="',ice.cream$images, '"/>','</p>')
       #print(ice.cream)
     }
   })
-  output$picture <- renderText({
-    event.data <- event_data(event = "plotly_click", source = "imgLink")
-    ice.cream <- ice.cream %>% filter(images == event.data$key)
-    link <- ice.cream$images
-    HTML('<img src ="', link, '">')
-      #print(ice.cream)
-    
-  })
+
 }
 
 shinyApp(ui = ui, server = server)
