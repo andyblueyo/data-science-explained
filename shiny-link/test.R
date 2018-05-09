@@ -8,9 +8,10 @@ library(shiny)
 #install.packages("htmlwidgets")
 library(htmlwidgets)
 
-## Read in the fake csv data set about ice cream
+## Read the fake csv data set about ice cream
 ice.cream <- read.csv("icecream-img.csv", stringsAsFactors = FALSE)
 
+## Create the shiny UI layout
 ui <- fluidPage(
   headerPanel("Price per Scoops"),
   sidebarPanel(
@@ -20,11 +21,14 @@ ui <- fluidPage(
   mainPanel(
     plotlyOutput("icePlot"),
     h4("Click on the dots to learn more about the ice cream flavor."),
+    plotlyOutput("ratingPlot"),
     uiOutput("imageLink")
   )
 )
 
+## Create the Shiny Server layout
 server <- function(input, output) {
+  ## Create the plotly plot that compares price vs scoops
   output$icePlot <- renderPlotly({
     range.ice.cream <- ice.cream %>% filter(prices >= input$priceRange[1]) %>% filter(prices <= input$priceRange[2])
     plot_ly(range.ice.cream, x = ~prices, y = ~scoops, type = "scatter", mode = "markers",
@@ -32,15 +36,29 @@ server <- function(input, output) {
       layout(title = paste("Ice Cream Price vs Scoops Given")) 
   })
   
+  ## Create text paragraph of info on a selected point
   output$imageLink <- renderText({
     event.data <- event_data(event = "plotly_click", source = "imgLink")
     if (is.null(event.data)) {
       print("Click to see the link of the point.")
     } else { 
       ice.cream <- ice.cream %>% filter(images == event.data$key)
-      HTML('<p>Flavor:',ice.cream$flavors, '</p>','<p>X Value (Price):', event.data[["x"]], '</p>','<p>Y Value (Scoops):', event.data[["y"]],'</p>',
+      HTML('<p>Flavor:',ice.cream$flavors, '</p>','<p>X Value:', event.data[["x"]], '</p>','<p>Y Value:', event.data[["y"]],'</p>',
            '<a href="', ice.cream$images,'">', ice.cream$images,'</a>','<p>','<img src="',ice.cream$images, '"/>','</p>')
       #print(ice.cream)
+    }
+  })
+  
+  ## Create the plotly plot of price vs rating based on selection
+  output$ratingPlot <- renderPlotly({
+    event.data <- event_data(event = "plotly_selected", source = "imgLink")
+    if (is.null(event.data)) {
+      print("Click and drag events (i.e., select/lasso) to make the plot appear here")
+    } else {
+      ice.cream <- ice.cream %>% filter(images == event.data$key)
+      plot_ly(ice.cream, x = ~prices, y = ~rating, type = "scatter", mode = "markers",
+              text = ~paste("Flavor:", flavors), key = ~images, source = "imgLink") %>%
+        layout(title = paste("Ice Cream Price vs Ratings Given"))
     }
   })
 

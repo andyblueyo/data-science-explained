@@ -1,10 +1,10 @@
-flavors,images,prices,scoops
-guava sorbet,http://image1.jdomni.in/product/B2/7D/07/Pink-Guava-Ice-cream_1497001650402_450X450.jpeg,5,4
-ube,http://i.pinimg.com/originals/39/b0/00/39b0008a59c93aea26bcb8f44273cc6d.jpg,3,10
-chocolate,http://www.brighteyedbaker.com/wp-content/uploads/2012/09/Chocolate-Ice-Cream.jpg,4,5
-strawberry,http://a9lumux160-flywheel.netdna-ssl.com/wp-content/uploads/2017/05/Strawberry-Ice-Cream-1-800x1200.jpg,4,6
-mint chocolate chip,http://d1wv4dwa0ti2j0.cloudfront.net/live/img/production/detail/ice-cream/cartons_rich-creamy_mint-chocolate-chip.jpg,5,3
-honey lavender,http://1.bp.blogspot.com/_ER9lTN0wb94/TEnLThTP48I/AAAAAAAAA6c/OUhS4vOtTJw/s640/lavender+ice+cream-1.jpg,6,4
-cookie dough,http://3.bp.blogspot.com/-Ip-XxFqrjrk/Vh6E7j6oS_I/AAAAAAAAaeo/9jEmP0Y7x3E/s1600/Chocolate-Chip-Pumpkin-Cookie-Dough-Ice-Cream-1.jpg,4,8
-peach,http://www.browniebites.net/wp-content/uploads/2016/06/honeyed-peach-and-praline-ice-cream-recipe-01.jpg,3,7
-cake batter,"http://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/12/89/52/f15xnUJJQc2kJB0O1v6o_birthday-cake-ice-cream-7207.jpg",3,5
+flavors,images,prices,scoops,rating
+guava sorbet,http://image1.jdomni.in/product/B2/7D/07/Pink-Guava-Ice-cream_1497001650402_450X450.jpeg,5,4,5
+ube,http://i.pinimg.com/originals/39/b0/00/39b0008a59c93aea26bcb8f44273cc6d.jpg,3,10,4
+chocolate,http://www.brighteyedbaker.com/wp-content/uploads/2012/09/Chocolate-Ice-Cream.jpg,4,5,3
+strawberry,http://a9lumux160-flywheel.netdna-ssl.com/wp-content/uploads/2017/05/Strawberry-Ice-Cream-1-800x1200.jpg,4,6,4
+mint chocolate chip,http://d1wv4dwa0ti2j0.cloudfront.net/live/img/production/detail/ice-cream/cartons_rich-creamy_mint-chocolate-chip.jpg,5,3,3
+honey lavender,http://1.bp.blogspot.com/_ER9lTN0wb94/TEnLThTP48I/AAAAAAAAA6c/OUhS4vOtTJw/s640/lavender+ice+cream-1.jpg,6,4,5
+cookie dough,http://3.bp.blogspot.com/-Ip-XxFqrjrk/Vh6E7j6oS_I/AAAAAAAAaeo/9jEmP0Y7x3E/s1600/Chocolate-Chip-Pumpkin-Cookie-Dough-Ice-Cream-1.jpg,4,8,4
+peach,http://www.browniebites.net/wp-content/uploads/2016/06/honeyed-peach-and-praline-ice-cream-recipe-01.jpg,3,7,3
+cake batter,"http://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/12/89/52/f15xnUJJQc2kJB0O1v6o_birthday-cake-ice-cream-7207.jpg",3,5,2
