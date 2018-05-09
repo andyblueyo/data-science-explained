@@ -15,13 +15,12 @@ ui <- fluidPage(
   headerPanel("Price per Scoops"),
   sidebarPanel(
     sliderInput("priceRange", label = h3("Price Range"), min = 0, 
-                max = 10, value = c(4, 6))
+                max = 10, value = c(2, 8))
   ),
   mainPanel(
     plotlyOutput("icePlot"),
     h4("Click on the dots to learn more about the ice cream flavor."),
     uiOutput("imageLink")
-    #htmlOutput("picture")
   )
 )
 
@@ -39,8 +38,7 @@ server <- function(input, output) {
       print("Click to see the link of the point.")
     } else { 
       ice.cream <- ice.cream %>% filter(images == event.data$key)
-      
-      HTML('<p>Flavor:',ice.cream$flavors, '</p>','<p>X Value:', event.data[["x"]], '</p>','<p>Y Value:', event.data[["y"]],'</p>',
+      HTML('<p>Flavor:',ice.cream$flavors, '</p>','<p>X Value (Price):', event.data[["x"]], '</p>','<p>Y Value (Scoops):', event.data[["y"]],'</p>',
            '<a href="', ice.cream$images,'">', ice.cream$images,'</a>','<p>','<img src="',ice.cream$images, '"/>','</p>')
       #print(ice.cream)
     }
