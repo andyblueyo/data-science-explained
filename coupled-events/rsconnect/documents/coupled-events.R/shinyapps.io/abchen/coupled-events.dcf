@@ -5,8 +5,8 @@ account: abchen
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 340005
-bundleId: 1372293
+bundleId: 1373922
 url: https://abchen.shinyapps.io/coupled-events/
-when: 1526276349.49132
+when: 1526340286.34211
 asMultiple: FALSE
 asStatic: FALSE

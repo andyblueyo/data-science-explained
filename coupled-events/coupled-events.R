@@ -21,6 +21,7 @@ ui <- fluidPage(
   mainPanel(
     plotlyOutput("icePlot"),
     h4("Click on the dots to learn more about the ice cream flavor."),
+    h4("Use the lasso/box select to learn more about the ratings of each ice cream flavor."),
     plotlyOutput("ratingPlot"),
     uiOutput("imageLink")
   )
