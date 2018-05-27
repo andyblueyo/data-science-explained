@@ -1,0 +1,12 @@
+name: coupled-events
+title:
+username:
+account: abchen
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 340005
+bundleId: 1388585
+url: https://abchen.shinyapps.io/coupled-events/
+when: 1527065898.39555
+asMultiple: FALSE
+asStatic: FALSE

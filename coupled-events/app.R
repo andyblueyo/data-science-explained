@@ -55,11 +55,14 @@ server <- function(input, output) {
     event.data <- event_data(event = "plotly_selected", source = "imgLink")
     if (is.null(event.data)) {
       print("Click and drag events (i.e., select/lasso) to make the bar plot appear here")
+      plot_ly(ice.cream.df, x = ~flavors, y = ~rating, type = "bar",
+              text = ~paste("Flavor:", flavors)) %>%
+        layout(title = paste("Ice Cream Ratings Given by Flavor"))
     } else {
       ice.cream <- ice.cream.df[ice.cream.df$images %in% event.data$key,]
       print(ice.cream)
       plot_ly(ice.cream, x = ~flavors, y = ~rating, type = "bar",
-              text = ~paste("Flavor:", flavors), key = ~images, source = "imgLink") %>%
+              text = ~paste("Flavor:", flavors)) %>%
         layout(title = paste("Ice Cream Ratings Given by Flavor"))
     }
   })
